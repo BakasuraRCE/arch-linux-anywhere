@@ -128,7 +128,7 @@ prepare_base() {
 						mkfs.ext4 -O \^64bit /dev/"$BOOT"
 						mount /dev/"$BOOT" "$mnt") &> /dev/null &
 						pid=$! pri=0.1 msg="\n$boot_load \n\n \Z1> \Z2mkfs.ext4 -O ^64bit /dev/$BOOT\Zn" load
-						base_install+=" $bootloader"
+						base_install+="$bootloader "
 						break
 					fi
 				else
@@ -390,7 +390,6 @@ add_software() {
 				;;
 				"$terminal")
 					software=$(dialog --ok-button "$ok" --cancel-button "$cancel" --checklist "$software_msg1" 18 63 8 \
-						"fbterm"			"$term0" OFF \
 						"guake"             "$term1" OFF \
 						"kmscon"			"$term2" OFF \
 						"pantheon-terminal"	"$term3" OFF \
